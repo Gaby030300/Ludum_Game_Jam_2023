@@ -16,6 +16,9 @@ public class CannonShot : MonoBehaviour
 
         projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up,transform.forward);
 
-        rb.AddForce(shootposition.forward* initialVelocity,ForceMode.Impulse);
+        foreach (Rigidbody item in projectile.GetComponentsInChildren<Rigidbody>())
+        {
+            item.AddForce(shootposition.forward* initialVelocity,ForceMode.Impulse);
+        }
     }
 }
