@@ -503,8 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5e777f4d3f01e43b89a4c45b2e478f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: 0
-  pirate: {fileID: 1704086938168578, guid: 0a851430cb9a7154c9b51288ca4fbfea, type: 3}
+  initialVelocity: 2000
+  pirate: {fileID: 6437797480842373709, guid: 3fee21bd407d41746b905ce4d0562e55, type: 3}
   shootposition: {fileID: 1773049730}
 --- !u!4 &41931433
 Transform:
@@ -825,3 +825,72 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43104422006284474, guid: e6722a80934dca8498e694ed1687a611, type: 2}
+--- !u!1001 &6436113809392602835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.342
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431187592832890571, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437797480842373709, guid: 3fee21bd407d41746b905ce4d0562e55,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_English_Govenor_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3fee21bd407d41746b905ce4d0562e55, type: 3}

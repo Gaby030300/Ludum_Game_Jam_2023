@@ -14,6 +14,8 @@ public class CannonShot : MonoBehaviour
         GameObject projectile = Instantiate(pirate,shootposition.position,Quaternion.identity);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
+        projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up,transform.forward);
+
         rb.AddForce(shootposition.forward* initialVelocity,ForceMode.Impulse);
     }
 }

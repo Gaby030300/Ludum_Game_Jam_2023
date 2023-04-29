@@ -20,7 +20,7 @@ public class CannonRotation : MonoBehaviour
         float yRot = transform.localRotation.eulerAngles.y;
         float zRot = transform.localRotation.eulerAngles.z;
 
-        Vector3 finalRotation = new Vector3(xRot + movementInput.y, yRot - movementInput.x, zRot);
+        Vector3 finalRotation = new Vector3(xRot - movementInput.y, yRot + movementInput.x, zRot);
 
         transform.localRotation = Quaternion.Euler(finalRotation);
         LimitRotation();
