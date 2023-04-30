@@ -27,16 +27,16 @@ public class ShipController : MonoBehaviour
 
     private void MoveShip()
     {
-        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
-        movement.Normalize();
+        Vector3 localMovement = transform.TransformDirection(moveInput.x, 0f, moveInput.y);
+        localMovement.Normalize();
 
-        rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(transform.position + localMovement * moveSpeed * Time.fixedDeltaTime);
 
-        if (movement != Vector3.zero)
+        if (localMovement != Vector3.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
+            Quaternion targetRotation = Quaternion.LookRotation(localMovement);
             float rotationStep = rotationSpeed * Time.fixedDeltaTime;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationStep);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationStep);
         }
     }
 
