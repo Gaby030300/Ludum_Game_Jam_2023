@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5356961054337787150}
   - component: {fileID: 2343683132428340167}
   - component: {fileID: 5308276749267966522}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,8 @@ GameObject:
   - component: {fileID: 6992409617126830347}
   - component: {fileID: 8540001977449222482}
   - component: {fileID: 1671109593}
-  m_Layer: 0
+  - component: {fileID: -182786715578353753}
+  m_Layer: 8
   m_Name: Equis
   m_TagString: X
   m_Icon: {fileID: 0}
@@ -161,6 +162,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-182786715578353753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348714210919627540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74176e231f2918d40841de412d067dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3061232939520422104
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +186,7 @@ GameObject:
   - component: {fileID: 6273307168179894696}
   - component: {fileID: 357132431736177435}
   - component: {fileID: 6834006399075466647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
