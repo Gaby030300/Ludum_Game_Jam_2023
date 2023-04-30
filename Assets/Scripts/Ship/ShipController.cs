@@ -39,4 +39,7 @@ public class ShipController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationStep);
         }
     }
+
+
+
 }
