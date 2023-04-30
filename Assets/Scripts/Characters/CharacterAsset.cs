@@ -5,11 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Character",menuName ="Create Character")]
 public class CharacterAsset : ScriptableObject
 {
-    public Mesh Characters;
+    public enum destinations {coconut, hacker, treasure,shipwreck }
+
+    public Mesh CharacterMeshes;
     public Sprite portrait;
-    public string characterName;
-    public string destination;
+    public string[] characterName;
+    public destinations destination;
     public AudioClip voiceLine;
+
 
 
 }
