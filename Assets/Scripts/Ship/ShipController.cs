@@ -29,6 +29,7 @@ public class ShipController : MonoBehaviour
     {
         Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
         movement.Normalize();
+
         rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         if (movement != Vector3.zero)
@@ -38,4 +39,7 @@ public class ShipController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationStep);
         }
     }
+
+
+
 }
