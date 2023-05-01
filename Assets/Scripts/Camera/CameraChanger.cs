@@ -6,7 +6,7 @@ public class CameraChanger : MonoBehaviour
 {
     public Camera firstPersonCamera;
     public Camera[] thirdPersonCameras;
-    public KeyCode switchCameraKey = KeyCode.S;
+    public KeyCode switchCameraKey = KeyCode.E;
 
     private int currentCameraIndex = 0;
 
