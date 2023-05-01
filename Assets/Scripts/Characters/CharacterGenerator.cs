@@ -8,19 +8,18 @@ public class CharacterGenerator : MonoBehaviour
 
     [SerializeField] Character currentCharacter;
 
-    [SerializeField] List<Character> queuedCharacters = new List<Character>();
-
-    public void GenerateRandomCharacter()
+    public Character GenerateRandomCharacter()
     {
         int index = Random.Range(0, possibleCharacters.Length);
         currentCharacter = new Character(possibleCharacters[index]);
+        return currentCharacter;
     }
 
     ///You should be able to get 4 characters at first and if one of those is being poped up then create a new one
     ///Is it mandatory to create a new one each time a new one is being boarded?
     ///So I'll need 2 lists, one of the boarded characters and one of the Queued Characters
 }
-
+[System.Serializable]
 public class Character{
         public Mesh characterMesh;
         public Sprite portrait;
