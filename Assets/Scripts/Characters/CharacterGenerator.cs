@@ -19,7 +19,7 @@ public class CharacterGenerator : MonoBehaviour
     ///Is it mandatory to create a new one each time a new one is being boarded?
     ///So I'll need 2 lists, one of the boarded characters and one of the Queued Characters
 }
-
+[System.Serializable]
 public class Character{
         public Mesh characterMesh;
         public Sprite portrait;

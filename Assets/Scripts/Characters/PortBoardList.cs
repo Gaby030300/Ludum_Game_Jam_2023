@@ -5,14 +5,17 @@ using UnityEngine;
 public class PortBoardList : MonoBehaviour
 {
     [Header("Control Variables")]
-    [SerializeField] List<Character> characters;
+    [SerializeField] List<Character> characters = new List<Character>();
     [SerializeField] int queuedLimit = 4;
+    [SerializeField] List<Transform> spots;
 
     [Header("Character")]
     [SerializeField] GameObject characterPrefab;
 
     [Header("Systems")]
     [SerializeField] private CharacterGenerator characterGenerator;
+
+    Character currentCharacter;
 
     private void Start()
     {
@@ -24,19 +27,24 @@ public class PortBoardList : MonoBehaviour
 
     public void CreateNewCharacter()
     {
-        AddCharacterToList( characterGenerator.GenerateRandomCharacter());
+        if (characters.Count <= queuedLimit)
+        {
+            currentCharacter = characterGenerator.GenerateRandomCharacter();
+            AddCharacterToList(currentCharacter);
+            InstantiateCharacter();
+        }
+    }
+
+    public void InstantiateCharacter()
+    {        
+            GameObject visualCharacter = Instantiate(characterPrefab,spots[characters.Count-1]);
+            visualCharacter.GetComponent<CharacterConstructor>().ConstructCharacter(currentCharacter);
+        
     }
 
     public void AddCharacterToList(Character character)
     {
-        if (characters.Count < queuedLimit)
-        {
-            characters.Add(character);
-        }
-        else
-        {
-            ///BOARDING FULL
-        }
+        characters.Add(character);
     }
 
     public void PopQuededCharacter(Character character)

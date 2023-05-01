@@ -5,17 +5,20 @@ using UnityEngine;
 public class CharacterConstructor : MonoBehaviour
 {
     public Character characterData;
-    SkinnedMeshRenderer meshRenderer;
+    [SerializeField] GameObject[] meshes;
+    [SerializeField] SkinnedMeshRenderer meshRenderer;
 
     private void Start()
     {
-        meshRenderer = GetComponent<SkinnedMeshRenderer>();
+        //meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
     public void ConstructCharacter(Character character)
     {
         characterData = character;
 
-        meshRenderer.sharedMesh = character.characterMesh;
+        int index = Random.Range(0,meshes.Length);
+        meshes[index].SetActive(true);
+        //meshRenderer.sharedMesh = character.characterMesh;
     }
 }
