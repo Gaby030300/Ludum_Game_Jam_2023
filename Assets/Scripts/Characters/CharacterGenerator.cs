@@ -8,12 +8,11 @@ public class CharacterGenerator : MonoBehaviour
 
     [SerializeField] Character currentCharacter;
 
-    [SerializeField] List<Character> queuedCharacters = new List<Character>();
-
-    public void GenerateRandomCharacter()
+    public Character GenerateRandomCharacter()
     {
         int index = Random.Range(0, possibleCharacters.Length);
         currentCharacter = new Character(possibleCharacters[index]);
+        return currentCharacter;
     }
 
     ///You should be able to get 4 characters at first and if one of those is being poped up then create a new one
