@@ -23,13 +23,14 @@ public class ShipBoardList : MonoBehaviour
 
     public void MoveCharacter(GameObject characterGO)
     {
-        //GameObject visualCharacter = Instantiate(visualCharacter, spots[characters.Count - 1]);
-        //visualCharacter.GetComponent<CharacterConstructor>().ConstructCharacter(currentCharacter);
-       // characterGO.transform.position = spots[characters.Count - 1].transform.position;
         characterGO.transform.parent = spots[characters.Count - 1];
         characterGO.transform.localPosition = Vector3.zero;
         Debug.Log("Character " + characterGO.name + " has boarded the ship and is now on their way to their destination.");
+    }
 
+    public Character GetLastCharacter()
+    {
+        return characters[0];
     }
 
     public void PopQuededCharacter(Character character)
