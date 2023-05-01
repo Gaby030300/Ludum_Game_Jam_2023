@@ -9,6 +9,8 @@ public class PortBoardList : MonoBehaviour
     [SerializeField] int queuedLimit = 4;
     [SerializeField] List<Transform> spots;
 
+    [SerializeField] float waitTime = 2f;
+
     [Header("Character")]
     [SerializeField] GameObject characterPrefab;
 
@@ -16,6 +18,7 @@ public class PortBoardList : MonoBehaviour
     [SerializeField] private CharacterGenerator characterGenerator;
 
     Character currentCharacter;
+    bool isBoarding;
 
     private void Start()
     {
@@ -37,9 +40,16 @@ public class PortBoardList : MonoBehaviour
 
     public void InstantiateCharacter()
     {        
-            GameObject visualCharacter = Instantiate(characterPrefab,spots[characters.Count-1]);
-            visualCharacter.GetComponent<CharacterConstructor>().ConstructCharacter(currentCharacter);
-        
+        GameObject visualCharacter = Instantiate(characterPrefab,spots[characters.Count-1]);
+        visualCharacter.GetComponent<CharacterConstructor>().ConstructCharacter(currentCharacter);
+        currentCharacter.GO = visualCharacter;
+    }
+
+    public void MoveToShip()
+    {
+        Character lastCharacter = characters[0];
+        FindObjectOfType<ShipBoardList>().AddCharacterToList(lastCharacter);
+        PopQuededCharacter(lastCharacter);
     }
 
     public void AddCharacterToList(Character character)
@@ -54,5 +64,34 @@ public class PortBoardList : MonoBehaviour
     public void PopQuededCharacter()
     {
         characters.RemoveAt(0);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && characters.Count > 0 && !isBoarding)
+        {
+            isBoarding = true;
+            StartCoroutine(MoveTimer());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    private IEnumerator MoveTimer()
+    {
+        ShipBoardList boardList = FindObjectOfType<ShipBoardList>();
+        if (boardList.boardedCount < boardList.boardingLimit)
+        {
+            yield return new WaitForSeconds(waitTime);
+            MoveToShip();
+            //boardList.AddCharacterToList(character);
+        }
+        isBoarding = false;
     }
 }

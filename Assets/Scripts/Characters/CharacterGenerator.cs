@@ -27,6 +27,7 @@ public class Character{
         public enum destinations { coconut, hacker, treasure, shipwreck }
         public destinations destination;
         public AudioClip voiceLine;
+    public GameObject GO;
     public Character(CharacterAsset characterAsset)
     {
         characterMesh = characterAsset.CharacterMeshes;
