@@ -7,38 +7,62 @@ public class ShipController : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector2 moveInput;
-    public float rotationSpeed = 5f;
-    public float moveSpeed = 5f;
+
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float acceleration = 2f;
+    private float currentSpeed;
+
+    [Header("Rotation")]
+    [SerializeField] private float rotationSpeed = 5f;
+
+    private bool isMoving = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        currentSpeed = moveSpeed;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if (moveInput != Vector2.zero)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         MoveShip();
     }
 
     private void MoveShip()
     {
-        Vector3 localMovement = transform.TransformDirection(moveInput.x, 0f, moveInput.y);
-        localMovement.Normalize();
-
-        if (localMovement != Vector3.zero)
+        if(isMoving)
         {
-            float targetAngle = Mathf.Atan2(localMovement.x, localMovement.z) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
+            Vector3 localMovement = transform.TransformDirection(moveInput.x, 0f, moveInput.y);
+            localMovement.Normalize();
+            transform.position += localMovement * currentSpeed * Time.fixedDeltaTime;            
+            currentSpeed = Mathf.Clamp(currentSpeed + acceleration * Time.fixedDeltaTime, moveSpeed, maxSpeed);
+            
+            if (localMovement != Vector3.zero)
+            {
+                float targetAngle = Mathf.Atan2(localMovement.x, localMovement.z) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+        }        
+        else
+        {
+            currentSpeed = Mathf.Clamp(currentSpeed - acceleration * Time.fixedDeltaTime, moveSpeed, maxSpeed);
         }
-        transform.position += transform.forward * localMovement.magnitude * moveSpeed * Time.deltaTime;
     }
-
-
 
 }
