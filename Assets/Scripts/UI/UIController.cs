@@ -11,6 +11,9 @@ public class UIController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] GameObject settings;
 
+    [Header("Instructions")]
+    [SerializeField] GameObject instructions;
+
     void Update()
     {
         OpenMap();
@@ -56,7 +59,6 @@ public class UIController : MonoBehaviour
     public void OnOptionsButton()
     {
         settings.SetActive(true);
-        Time.timeScale = 0;
     }
     public void OnMenuButton()
     {
@@ -65,7 +67,14 @@ public class UIController : MonoBehaviour
     public void OnCloseButton()
     {
         settings.SetActive(false);
-        Time.timeScale = 1;
+    }
+    public void OnCloseInstructionsButton()
+    {
+        instructions.SetActive(false);
+    }
+    public void OnPlayAgainButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void OnCreditsButton()
     {
