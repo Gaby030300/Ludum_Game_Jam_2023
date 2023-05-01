@@ -10,12 +10,17 @@ public class CannonShot : MonoBehaviour
     [SerializeField] GameObject pirate;
     [SerializeField] Transform shootposition;
 
-    LoadCharacterCannon loadCharacterCannon;
+    CameraChanger cameraChanger;
+
+    private void Start()
+    {
+        cameraChanger = FindObjectOfType<CameraChanger>();
+    }
 
     public void OnFire()
     {        
         ShipBoardList shipBoardList = FindObjectOfType<ShipBoardList>();
-        if (shipBoardList.boardedCount > 0)
+        if (shipBoardList.boardedCount > 0 && !cameraChanger.isThirdPerson)
         {
             GameObject projectile = shipBoardList.GetLastCharacter().GO;
             projectile.transform.position = shootposition.position;

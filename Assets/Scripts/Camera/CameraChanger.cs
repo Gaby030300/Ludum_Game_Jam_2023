@@ -10,6 +10,8 @@ public class CameraChanger : MonoBehaviour
 
     private int currentCameraIndex = 0;
 
+    public bool isThirdPerson;
+
     void Update()
     {
         if (Input.GetKeyDown(switchCameraKey))
@@ -18,6 +20,7 @@ public class CameraChanger : MonoBehaviour
             if (currentCameraIndex == 0)
             {
                 firstPersonCamera.enabled = true;
+                isThirdPerson = false;
                 foreach (Camera cam in thirdPersonCameras)
                 {
                     cam.enabled = false;
@@ -26,6 +29,7 @@ public class CameraChanger : MonoBehaviour
             else
             {
                 firstPersonCamera.enabled = false;
+                isThirdPerson = true;
                 for (int i = 0; i < thirdPersonCameras.Length; i++)
                 {
                     if (i == currentCameraIndex - 1)

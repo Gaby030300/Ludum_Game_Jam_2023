@@ -19,8 +19,15 @@ public class CannonRotation : MonoBehaviour
 
     private Vector2 movementInput;
 
+    CameraChanger cameraChanger;
+
+    private void Start()
+    {
+        cameraChanger = FindObjectOfType<CameraChanger>();
+    }
     public void OnMove(InputValue value)
     {
+        if(!cameraChanger.isThirdPerson)
         movementInput = value.Get<Vector2>();
         
     }
