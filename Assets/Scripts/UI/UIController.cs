@@ -67,6 +67,10 @@ public class UIController : MonoBehaviour
         settings.SetActive(false);
         Time.timeScale = 1;
     }
+    public void OnCreditsButton()
+    {
+        SceneManager.LoadScene("Credits");
+    }
     public void OnExitButton()
     {
         Application.Quit();

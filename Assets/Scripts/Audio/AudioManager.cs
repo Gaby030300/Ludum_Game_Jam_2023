@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayMusic("Main Theme");
+        PlayMusic("Main Theme");        
     }
 
     public void PlayMusic(string name)
