@@ -1431,6 +1431,7 @@ MonoBehaviour:
     characterName: 
     destination: 0
     voiceLine: {fileID: 0}
+    GO: {fileID: 0}
   meshes:
   - {fileID: 6437004498360721097}
   - {fileID: 6437839114662950867}
