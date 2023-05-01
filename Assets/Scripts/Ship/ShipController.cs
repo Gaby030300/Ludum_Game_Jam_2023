@@ -19,8 +19,11 @@ public class ShipController : MonoBehaviour
 
     private bool isMoving = false;
 
+    CameraChanger cameraChanger;
+
     private void Awake()
     {
+        cameraChanger = FindObjectOfType<CameraChanger>();
         rb = GetComponent<Rigidbody>();
         currentSpeed = moveSpeed;
     }
@@ -28,7 +31,7 @@ public class ShipController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        if (moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero && cameraChanger.isThirdPerson)
         {
             isMoving = true;
         }
