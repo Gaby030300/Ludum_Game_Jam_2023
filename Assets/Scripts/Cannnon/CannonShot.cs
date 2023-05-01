@@ -18,10 +18,13 @@ public class CannonShot : MonoBehaviour
     }
 
     public void OnFire()
-    {        
+    {
+        Debug.Log("Fire");
         ShipBoardList shipBoardList = FindObjectOfType<ShipBoardList>();
         if (shipBoardList.boardedCount > 0 && !cameraChanger.isThirdPerson)
         {
+            shipBoardList.PopQuededCharacter();
+            Debug.Log("Shoot");
             GameObject projectile = shipBoardList.GetLastCharacter().GO;
             projectile.transform.position = shootposition.position;
            // GameObject projectile = Instantiate(pirate,shootposition.position,Quaternion.identity);

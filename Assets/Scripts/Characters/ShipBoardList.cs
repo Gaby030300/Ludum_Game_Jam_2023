@@ -14,6 +14,7 @@ public class ShipBoardList : MonoBehaviour
         {
             characters.Add(character);
             MoveCharacter(character.GO);
+            boardedCount++;
         }
         else
         {
@@ -36,9 +37,11 @@ public class ShipBoardList : MonoBehaviour
     public void PopQuededCharacter(Character character)
     {
         characters.Remove(character);
+        boardedCount = boardedCount>0? boardedCount--:0;
     }
     public void PopQuededCharacter()
     {
         characters.RemoveAt(0);
+        boardedCount = boardedCount>0? boardedCount--:0;
     }
 }

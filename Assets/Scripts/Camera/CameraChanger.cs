@@ -30,7 +30,7 @@ public class CameraChanger : MonoBehaviour
             if (currentCameraIndex == 0)
             {
                 firstPersonCamera.enabled = true;
-                isThirdPerson = false;                
+                isThirdPerson = true;                
                 foreach (Camera cam in thirdPersonCameras)
                 {
                     cam.enabled = false;                    
@@ -39,7 +39,7 @@ public class CameraChanger : MonoBehaviour
             else
             {
                 firstPersonCamera.enabled = false;
-                isThirdPerson = true;                               
+                isThirdPerson = false;                               
                 for (int i = 0; i < thirdPersonCameras.Length; i++)
                 {                    
                     if (i == currentCameraIndex - 1)
