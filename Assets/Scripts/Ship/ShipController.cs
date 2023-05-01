@@ -30,14 +30,13 @@ public class ShipController : MonoBehaviour
         Vector3 localMovement = transform.TransformDirection(moveInput.x, 0f, moveInput.y);
         localMovement.Normalize();
 
-        rb.MovePosition(transform.position + localMovement * moveSpeed * Time.fixedDeltaTime);
-
         if (localMovement != Vector3.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(localMovement);
-            float rotationStep = rotationSpeed * Time.fixedDeltaTime;
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationStep);
+            float targetAngle = Mathf.Atan2(localMovement.x, localMovement.z) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+        transform.position += transform.forward * localMovement.magnitude * moveSpeed * Time.deltaTime;
     }
 
 
