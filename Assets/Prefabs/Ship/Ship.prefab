@@ -872,6 +872,7 @@ GameObject:
   - component: {fileID: 5571749534391297151}
   - component: {fileID: 7346793518574898048}
   - component: {fileID: 1157599272}
+  - component: {fileID: 4775581048359589280}
   m_Layer: 11
   m_Name: Ship
   m_TagString: Player
@@ -1088,6 +1089,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fd0c56d838633f144ad46fc5d0d0f65a, type: 3}
+--- !u!135 &4775581048359589280
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126043874193330454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 19.874468
+  m_Center: {x: 0.11362842, y: 8.565777, z: 3.2808557}
 --- !u!1 &5640925016962507303
 GameObject:
   m_ObjectHideFlags: 0

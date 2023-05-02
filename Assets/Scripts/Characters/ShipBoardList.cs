@@ -8,6 +8,14 @@ public class ShipBoardList : MonoBehaviour
     [SerializeField] public int boardingLimit=4;
     [SerializeField] List<Transform> spots;
     public int boardedCount { private set; get; }
+
+    XController xController;
+
+    private void Start()
+    {
+        xController = FindObjectOfType<XController>();
+    }
+
     public void AddCharacterToList(Character character)
     {
         if (characters.Count<boardingLimit)
@@ -20,6 +28,11 @@ public class ShipBoardList : MonoBehaviour
         {
             ///BOARDING FULL
         }
+    }
+
+    private void LateUpdate()
+    {
+        if(characters.Count>0) xController.ActivateCurrent(characters[0]);
     }
 
     public void MoveCharacter(GameObject characterGO)
