@@ -27,21 +27,25 @@ public class CannonRotation : MonoBehaviour
     }
     public void OnMove(InputValue value)
     {
-        if(!cameraChanger.isThirdPerson)
         movementInput = value.Get<Vector2>();
         
     }
 
     private void FixedUpdate()
     {
-        float xRot = cannonTransform.localRotation.eulerAngles.x;
-        float yRot = cannonTransform.localRotation.eulerAngles.y;
-        float zRot = cannonTransform.localRotation.eulerAngles.z;
+        if (!cameraChanger.isThirdPerson)
+        {
 
-        Vector3 finalRotation = new Vector3(xRot - movementInput.y, yRot + movementInput.x, zRot);
 
-        cannonTransform.localRotation = Quaternion.Euler(finalRotation);
-        LimitRotation();
+            float xRot = cannonTransform.localRotation.eulerAngles.x;
+            float yRot = cannonTransform.localRotation.eulerAngles.y;
+            float zRot = cannonTransform.localRotation.eulerAngles.z;
+
+            Vector3 finalRotation = new Vector3(xRot - movementInput.y, yRot + movementInput.x, zRot);
+
+            cannonTransform.localRotation = Quaternion.Euler(finalRotation);
+            LimitRotation();
+        }
         
     }
 

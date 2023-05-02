@@ -10,7 +10,7 @@ public class CameraChanger : MonoBehaviour
 
     private int currentCameraIndex = 0;
 
-    public bool isThirdPerson;
+    public bool isThirdPerson = true;
     void Start()
     {
         firstPersonCamera.enabled = true;
@@ -19,6 +19,7 @@ public class CameraChanger : MonoBehaviour
         {
             cam.enabled = false;
         }
+        isThirdPerson = true;
     }
 
 

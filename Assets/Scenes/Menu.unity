@@ -26392,6 +26392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 0}
   settings: {fileID: 1572010505}
+  instructions: {fileID: 0}
 --- !u!1001 &826475057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67864,7 +67865,7 @@ PrefabInstance:
     - target: {fileID: 4461574066895550812, guid: 3366cf7566d76704f9b5443f619badc8,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8984105164428248626, guid: 3366cf7566d76704f9b5443f619badc8,
         type: 3}
