@@ -41,6 +41,7 @@ public class UIController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             settings.SetActive(!settings.gameObject.activeSelf);
+
             if (settings.gameObject.activeSelf == true)
             {
                 Time.timeScale = 0;

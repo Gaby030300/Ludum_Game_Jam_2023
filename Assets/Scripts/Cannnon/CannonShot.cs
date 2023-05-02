@@ -38,5 +38,6 @@ public class CannonShot : MonoBehaviour
                 item.AddForce(shootposition.forward * initialVelocity, ForceMode.Impulse);
             }
         }
+
     }
 }

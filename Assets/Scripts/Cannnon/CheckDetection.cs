@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 /// <summary>
 /// Si... tengo problemas al nombrar esta clase de esta forma pero algún día voy a arreglar alguna de estas cosas
 /// </summary>
 public class CheckDetection : MonoBehaviour
 {
     [SerializeField] public Rigidbody rbProbe;
-    bool isInPosition;
+    bool isInPosition;    
 
     private void Start()
     {
@@ -41,7 +42,14 @@ public class CheckDetection : MonoBehaviour
     {
         if (other.CompareTag("X"))
         {
-            isInPosition = true;   
+            isInPosition = true;
+            ScoreManager.Score++;
+
+        }
+        if (other.CompareTag("Water"))
+        {
+            ScoreManager.Strike++;
+            GetStrike();
         }
         ///If Sea: GetStrick or something
     }
@@ -51,7 +59,6 @@ public class CheckDetection : MonoBehaviour
         if (other.CompareTag("X"))
         {
             isInPosition = false;  
-        }
-        
+        }        
     }
 }
