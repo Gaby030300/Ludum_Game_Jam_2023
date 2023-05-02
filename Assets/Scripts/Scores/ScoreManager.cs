@@ -14,7 +14,6 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject WonPanel;
   
-    // Update is called once per frame
     void Update()
     {
         counterStrike.text = "STRIKES: " + Strike.ToString();

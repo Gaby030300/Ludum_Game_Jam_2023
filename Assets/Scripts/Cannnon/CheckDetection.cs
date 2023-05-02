@@ -43,7 +43,8 @@ public class CheckDetection : MonoBehaviour
         if (other.CompareTag("X"))
         {
             isInPosition = true;
-            
+            ScoreManager.Score++;
+
         }
         if (other.CompareTag("Water"))
         {
