@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
+            AudioManager.instance.PlaySFX("Button");
             map.SetActive(!map.gameObject.activeSelf);
             if (map.gameObject.activeSelf == true)
             {
@@ -40,6 +41,7 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioManager.instance.PlaySFX("Button");
             settings.SetActive(!settings.gameObject.activeSelf);
 
             if (settings.gameObject.activeSelf == true)
@@ -54,35 +56,43 @@ public class UIController : MonoBehaviour
     }
     public void OnPlayButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         SceneManager.LoadScene("GameScene");
     }
 
     public void OnOptionsButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         settings.SetActive(true);
     }
     public void OnMenuButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         SceneManager.LoadScene("Menu");
     }
     public void OnCloseButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         settings.SetActive(false);
     }
     public void OnCloseInstructionsButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         instructions.SetActive(false);
     }
     public void OnPlayAgainButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void OnCreditsButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         SceneManager.LoadScene("Credits");
     }
     public void OnExitButton()
     {
+        AudioManager.instance.PlaySFX("Button");
         Application.Quit();
     }
 }

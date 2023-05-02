@@ -47,6 +47,7 @@ public class CheckDetection : MonoBehaviour
         }
         if (other.CompareTag("Water"))
         {
+            AudioManager.instance.PlaySFX("Splash");
             ScoreManager.Strike++;
             GetStrike();
         }

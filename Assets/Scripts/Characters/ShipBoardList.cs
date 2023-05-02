@@ -39,6 +39,7 @@ public class ShipBoardList : MonoBehaviour
     {
         characterGO.transform.parent = spots[characters.Count - 1];
         characterGO.transform.localPosition = Vector3.zero;
+        AudioManager.instance.PlaySFX("Boarding");
         Debug.Log("Character " + characterGO.name + " has boarded the ship and is now on their way to their destination.");
     }
 
